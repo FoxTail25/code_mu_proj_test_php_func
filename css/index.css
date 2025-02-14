@@ -1,0 +1,25 @@
+@import url(./index/variable.css);
+@import url(./normalize.css);
+@import url(./index/elements.css);
+
+@import url(./index/header.css);
+@import url(./index/main.css);
+@import url(./index/footer.css);
+
+@import url(./index/popup.css);
+
+body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+html {
+	font-family: Roboto;
+}
+
+.container {
+	max-width: 1024px;
+	margin: 0 auto;
+	text-align: center;
+}

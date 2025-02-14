@@ -1,0 +1,38 @@
+#popup_bg {
+	/* display: none; */
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: -200vh;
+	transition: .3s;
+
+	background: rgba(184, 48, 48, 0.8);
+
+	.popup {
+		position: absolute;
+		width: 300px;
+		height: 200px;
+		background:white;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		border-radius:20px;
+		
+
+		span, button {
+			display: block;
+			text-align: center;
+			margin:0 auto;
+		}
+
+		span {
+			font-size: 20px;
+			padding-top: 30px;
+		}
+
+		.btn_block {
+			margin-top: 50px;
+		}
+		
+	}
+}

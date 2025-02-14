@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- meta -->
+	<meta name="description" content="Тест по PHP" />
+	<!--  -->
+	<!-- Стили -->
+	<link rel="stylesheet" href="./css/index.css">
+	<!--  -->
+	<!-- Подключение шрифтов -->
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+		rel="stylesheet" />
+	<!--  -->
+
+
+	<title>Тест по PHP</title>
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<h1>
+				Тест по PHP
+			</h1>
+		</div>
+	</header>
+
+	<main>
+		<div class="container">
+
+			<div class="description_block">
+				<h2 class="main_header">
+					Тест на знание функций PHP
+				</h2>
+				<div class="description">
+					Тест состоит из описания встроенных функций языка PHP. Вам необходимо внимательно прочитать
+					предложенное
+					описание, и после этого написать название функции.
+				</div>
+				<div class="btn_block">
+					<button id="start_testing" class="standart_btn">Начать тестирование</button>
+				</div>
+			</div>
+			<div class="test_block">
+				<span>Описание функции:</span>
+				<div id="question_text" class="question">Вывод информации о текущей установленной GD библиотеке</div>
+				<div class="answer_block">
+
+					<input id="answer_on_question" type="text" class="answer" placeholder="Напишите название функции">
+
+					<div class="btn_block">
+						<button id="next_question" class="standart_btn" disabled>Следующий вопрос </button>
+					</div>
+				</div>
+				<div class="btn_block end_btn">
+					<button id="end_test" class="standart_btn">Закончить тестирование</button>
+				</div>
+			</div>
+			<div class="result_block">
+				Тест окончен
+				<div class="answer_quantity">
+					количество вопросов<span id="answer_quantity"></span>
+				</div>
+				<div class="answer_right">
+					количество правильных ответов<span id="answer_right"></span>
+				</div>
+				<div class="answer_wrong">
+					количество неправильных ответов<span id="answer_wrong"></span>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer>
+		<div class="container">
+			<div class="footer">
+				<div class="copyright">©</div>
+				<div class="author">FoxTail25
+					<a href="https://github.com/FoxTail25" target="_blank" class="author_git"></a>
+					<a href="https://t.me/Siverk" target="_blank" class="author_telegram"></a>
+				</div>
+				<div class="year">2025</div>
+			</div>
+		</div>
+	</footer>
+
+	<div id="popup_bg">
+		<div class="popup">
+			<span>Ответ должен состоять только из латинских букв</span>
+			<div class="btn_block">
+
+				<button id="popup_btn" class="standart_btn">Исправить</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="./js/test.js" type="module"></script>
+</body>
+
+</html>

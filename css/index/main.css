@@ -1,0 +1,56 @@
+main {
+  flex: 1;
+}
+
+.description_block {
+  .main_header {
+    text-align: center;
+  }
+
+  .description {
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .btn_block {
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+}
+
+.test_block {
+	display: none;
+  max-width: 500px;
+  text-align: left;
+  margin: 0 auto;
+  margin-top: 30px;
+  span {
+	font-weight: 700;
+	font-size: 20px;
+  }
+
+  .answer_block {
+	display: flex;
+	align-items:center;
+    input {
+	  flex: 1;
+      border-radius: 10px;
+      padding: 10px;
+      border: 1px solid gray;
+	  margin-right: 10px;
+    }
+    .btn_block {
+      display: inline-block;
+      margin: 0 auto;
+      width: fit-content;
+    }
+  }
+}
+.end_btn {
+  margin-top: 80px;
+}
+
+.result_block {
+	display: none;
+}

@@ -1,0 +1,18 @@
+.standart_btn {
+
+	padding: 10px;
+	border-radius: 10px;
+	border: none;
+	box-shadow: 2px 5px 10px var(--btn_box_shadow);
+	margin-top: 5px;
+	margin-bottom: 5px;
+	transition: .1s;
+	
+	
+	&:not([disabled]):hover {
+		margin-top: 7px;
+		margin-bottom: 3px;
+		box-shadow: 2px 3px 5px var(--btn_box_shadow);
+
+	}
+}
