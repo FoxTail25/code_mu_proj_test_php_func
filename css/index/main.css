@@ -53,4 +53,26 @@ main {
 
 .result_block {
 	display: none;
+	padding-top: 40px;
+
+	.answer_span {
+		margin-left: 10px;
+	}
+
+	.answer_quantity, .answer_right, .answer_wrong {
+		display: flex;
+		justify-content: space-between;
+		max-width: 500px;
+		margin: 0 auto;
+		margin-top: 30px;
+	}
+	.answer_right {
+		color: green;
+	}
+	.answer_wrong {
+		color:red;
+	}
+	.btn_block {
+		margin-top: 30px;
+	}
 }
