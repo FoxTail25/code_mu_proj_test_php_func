@@ -115,7 +115,7 @@ function nextQuestion() {
 	getQuestion()
 }
 
-// функция окончания тестирования
+// функция окончания тестирования и выведения результатов
 function testOff() {
 	testBlock.style.display = 'none';
 	
