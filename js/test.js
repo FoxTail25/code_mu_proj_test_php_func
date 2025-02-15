@@ -51,6 +51,7 @@ startTestingBtn.addEventListener('click', startTesting);
 popUpBtn.addEventListener('click', function () {
 	popUp.style.top = '-200vh';
 	answerOnQuestion.value = '';
+	answerOnQuestion.addEventListener('change', nextQuestion);
 })
 
 // вешаем слушатели на кнопки
@@ -91,6 +92,7 @@ function testAnswer() {
 	if (testOnNum) {
 		nextQuestionBtn.disabled = true;
 		popUp.style.top = '0vh';
+		answerOnQuestion.removeEventListener('change', nextQuestion);
 	} else {
 		answer.length == 0
 			? nextQuestionBtn.disabled = true
