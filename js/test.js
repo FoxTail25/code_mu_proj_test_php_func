@@ -64,6 +64,8 @@ answerOnQuestion.addEventListener('input', testAnswer);
 answerOnQuestion.addEventListener('change', nextQuestion);
 
 
+
+// функция начала тестирования
 function startTesting() {
 	testBlock.style.display = 'block';
 	startTestingBtn.style.display = 'none';
@@ -71,6 +73,7 @@ function startTesting() {
 	getQuestion()
 }
 
+//функция выведения рандомного вопроса
 function getQuestion() {
 	let maxNumber = questionsArr.length - 1;
 	if(maxNumber > -1) {
@@ -82,7 +85,7 @@ function getQuestion() {
 	}
 }
 
-
+//функция тестирования inputa с ответом
 function testAnswer() {
 	let answer = answerOnQuestion.value;
 
@@ -98,7 +101,7 @@ function testAnswer() {
 	}
 }
 
-
+// функция следующего вопроса
 function nextQuestion() {
 	let questionText = randomQuestion.text;
 	let questionAnswer = randomQuestion.answer;
@@ -112,7 +115,7 @@ function nextQuestion() {
 	getQuestion()
 }
 
-
+// функция окончания тестирования
 function testOff() {
 	testBlock.style.display = 'none';
 	
@@ -125,7 +128,7 @@ function testOff() {
 	resultBlock.style.display = 'block';
 }
 
-
+//функция перезапуска теста
 function restartTesting() {
 	questionsArr = [...questions];
 	answerArr = [];
