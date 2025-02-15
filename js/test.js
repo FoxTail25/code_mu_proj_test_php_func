@@ -56,10 +56,12 @@ popUpBtn.addEventListener('click', function () {
 
 // вешаем слушатели на кнопки
 nextQuestionBtn.addEventListener('click', nextQuestion)
-
 endTestBtn.addEventListener('click', testOff);
-
 restartTest.addEventListener('click', restartTesting)
+
+// вешаем слушатели на input с ответом на вопрос
+answerOnQuestion.addEventListener('input', testAnswer);
+answerOnQuestion.addEventListener('change', nextQuestion);
 
 
 function startTesting() {
@@ -81,10 +83,6 @@ function getQuestion() {
 }
 
 
-answerOnQuestion.addEventListener('input', testAnswer);
-answerOnQuestion.addEventListener('change', nextQuestion);
-
-
 function testAnswer() {
 	let answer = answerOnQuestion.value;
 
@@ -100,6 +98,7 @@ function testAnswer() {
 	}
 }
 
+
 function nextQuestion() {
 	let questionText = randomQuestion.text;
 	let questionAnswer = randomQuestion.answer;
@@ -110,9 +109,9 @@ function nextQuestion() {
 		isRight: answerOnQuestion.value == questionAnswer
 	})
 	answerOnQuestion.value = ''
-	console.log('answerArr', answerArr)
 	getQuestion()
 }
+
 
 function testOff() {
 	testBlock.style.display = 'none';
@@ -126,10 +125,10 @@ function testOff() {
 	resultBlock.style.display = 'block';
 }
 
+
 function restartTesting() {
 	questionsArr = [...questions];
 	answerArr = [];
 	resultBlock.style.display = 'none';
-	// testBlock.style.display = 'block';
 	startTesting()
 }
