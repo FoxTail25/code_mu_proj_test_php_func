@@ -80,7 +80,8 @@ function getQuestion() {
 }
 
 
-answerOnQuestion.addEventListener('input', testAnswer)
+answerOnQuestion.addEventListener('input', testAnswer);
+answerOnQuestion.addEventListener('change', nextQuestion);
 
 
 function testAnswer() {

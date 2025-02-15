@@ -1,5 +1,6 @@
 footer {
-	/* background: var(--color_4) */
+	background: rgb(226, 226, 226);
+	padding: 5px 0;
 }
 .footer {
 	display: flex;
