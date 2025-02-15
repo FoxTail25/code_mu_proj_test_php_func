@@ -3,7 +3,7 @@ import { questions } from './questions.js';
 //импортируем функцию получения случайного числа.
 import { getRandomInt } from './utils/util.js';
 
-let questionsArr = [...questions]
+let questionsArr = [...questions];
 
 
 // доступ к кнопкам:
@@ -13,6 +13,8 @@ const startTestingBtn = document.getElementById('start_testing');
 const nextQuestionBtn = document.getElementById('next_question');
 // окончить тестирование
 const endTestBtn = document.getElementById('end_test');
+// рестарт теста
+const restartTest = document.getElementById('restart_test')
 
 
 
@@ -51,7 +53,13 @@ popUpBtn.addEventListener('click', function () {
 	answerOnQuestion.value = '';
 })
 
+// вешаем слушатели на кнопки
 nextQuestionBtn.addEventListener('click', nextQuestion)
+
+endTestBtn.addEventListener('click', testOff);
+
+restartTest.addEventListener('click', restartTesting)
+
 
 function startTesting() {
 	testBlock.style.display = 'block';
@@ -67,7 +75,6 @@ function getQuestion() {
 		randomQuestion = questionsArr.splice(randomNum, 1)[0];
 		questionText.textContent = randomQuestion.text
 	} else {
-		// console.log('test_off')
 		testOff()
 	}
 }
@@ -81,7 +88,6 @@ function testAnswer() {
 
 	let testOnNum = /\d+|[а-я]+/.test(answer);
 	if (testOnNum) {
-		// console.log(testOnNum)
 		nextQuestionBtn.disabled = true;
 		popUp.style.top = '0vh';
 	} else {
@@ -111,11 +117,16 @@ function testOff() {
 	let testAnswerQuantity = answerArr.length;
 	let testRightAnswerQuantity = (answerArr.filter(e => e.isRight == true)).length;
 	let testWrongAnswerQuantity = (answerArr.filter(e => e.isRight == false)).length;
-	console.log('всего вопросов', testAnswerQuantity);
-	console.log('верных ответов', testRightAnswerQuantity);
-	console.log('неправильных ответов', testWrongAnswerQuantity);
 	answerQuantity.textContent = testAnswerQuantity;
 	answerRight.textContent = testRightAnswerQuantity;
 	answerWrong.textContent = testWrongAnswerQuantity;
 	resultBlock.style.display = 'block';
+}
+
+function restartTesting() {
+	questionsArr = [...questions];
+	answerArr = [];
+	resultBlock.style.display = 'none';
+	// testBlock.style.display = 'block';
+	startTesting()
 }

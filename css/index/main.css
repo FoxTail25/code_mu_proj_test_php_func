@@ -29,8 +29,14 @@ main {
 	font-weight: 700;
 	font-size: 20px;
   }
+  #question_text {
+    background: rgb(228, 226, 226);
+    padding: 3px;
+    
+  }
 
   .answer_block {
+    margin-top: 10px;
 	display: flex;
 	align-items:center;
     input {
@@ -65,6 +71,10 @@ main {
 		max-width: 500px;
 		margin: 0 auto;
 		margin-top: 30px;
+    border-bottom: 1px solid;
+    span {
+      font-size: 20px;
+    }
 	}
 	.answer_right {
 		color: green;
