@@ -50,8 +50,7 @@ main {
     background: rgb(228, 226, 226);
     border-radius: 5px;
     padding: 5px;
-    /* transition: .2s; */
-    height: 23px;
+    min-height: 23px;
   }
 
   .answer_block {
