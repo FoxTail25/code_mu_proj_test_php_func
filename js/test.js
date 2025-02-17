@@ -60,6 +60,7 @@ popUpBtn.addEventListener('click', function () {
 	popUp.style.top = '-200vh';
 	answerOnQuestion.value = '';
 	answerOnQuestion.addEventListener('change', nextQuestion);
+	answerOnQuestion.focus();
 })
 
 // вешаем слушатели на кнопки
@@ -105,6 +106,8 @@ function testAnswer() {
 		nextQuestionBtn.disabled = true;
 		popUp.style.top = '0vh';
 		answerOnQuestion.removeEventListener('change', nextQuestion);
+		popUpBtn.focus()
+		
 	} else {
 		answer.length == 0
 			? nextQuestionBtn.disabled = true
