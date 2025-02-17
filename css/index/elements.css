@@ -19,3 +19,12 @@
 
 	}
 }
+
+.right_answer_on_question {
+	color: green;
+	transition: color .1s;
+}
+.wrong_answer_on_question {
+	color: red;
+	transition: color .1s;
+}

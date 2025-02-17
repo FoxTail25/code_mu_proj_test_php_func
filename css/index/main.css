@@ -48,7 +48,10 @@ main {
   }
   #question_text {
     background: rgb(228, 226, 226);
-    padding: 3px;
+    border-radius: 5px;
+    padding: 5px;
+    /* transition: .2s; */
+    height: 23px;
   }
 
   .answer_block {
@@ -88,14 +91,14 @@ main {
     justify-content: space-between;
     max-width: 500px;
     margin: 0 auto;
-    margin-top: 30px;
+    margin-top: 20px;
     border-bottom: 1px solid;
     span {
       font-size: 20px;
     }
   }
-  details {
-    display: block;
+  details.details_wrong, details.details_right {
+    display: none;
     max-width: 500px;
     margin: 0 auto;
     text-align: left;
@@ -136,6 +139,7 @@ main {
   }
 
   td {
+    padding: 2px;
     &:first-child {
       width: 80%;
     }
