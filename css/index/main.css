@@ -11,6 +11,10 @@ main {
     text-align: left;
     max-width: 500px;
     margin: 0 auto;
+
+    .php_href {
+      /* display: block; */
+    }
   }
   .btn_block {
     width: fit-content;
