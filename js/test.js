@@ -25,6 +25,7 @@ const questionText = document.getElementById('question_text');
 //доступ к input с ответом
 const answerOnQuestion = document.getElementById('answer_on_question');
 
+
 //доступ к блоку с результатом
 const resultBlock = document.querySelector('.result_block');
 //количество вопросов
@@ -33,6 +34,10 @@ const answerQuantity = document.getElementById('answer_quantity');
 const answerRight = document.getElementById('answer_right');
 //количество неправильных ответов
 const answerWrong = document.getElementById('answer_wrong');
+//детали неверных ответов
+const detailsWrong = document.querySelector('.details_wrong');
+const detailsWrongTable = document.getElementById('details_wrong_table');
+const detailsRightTable = document.getElementById('details_right_table');
 
 
 // Доступ к попАп
@@ -55,9 +60,9 @@ popUpBtn.addEventListener('click', function () {
 })
 
 // вешаем слушатели на кнопки
-nextQuestionBtn.addEventListener('click', nextQuestion)
+nextQuestionBtn.addEventListener('click', nextQuestion);
 endTestBtn.addEventListener('click', testOff);
-restartTest.addEventListener('click', restartTesting)
+restartTest.addEventListener('click', restartTesting);
 
 // вешаем слушатели на input с ответом на вопрос
 answerOnQuestion.addEventListener('input', testAnswer);
@@ -75,13 +80,15 @@ function startTesting() {
 
 //функция выведения рандомного вопроса
 function getQuestion() {
-	let maxNumber = questionsArr.length - 1;
-	if(maxNumber > -1) {
-		let randomNum = getRandomInt(0, maxNumber);
+	let maxIndexNumber = questionsArr.length - 1;
+	if (maxIndexNumber > -1) {
+		let randomNum = getRandomInt(0, maxIndexNumber);
 		randomQuestion = questionsArr.splice(randomNum, 1)[0];
-		questionText.textContent = randomQuestion.text
+		questionText.textContent = '';
+		questionText.textContent = randomQuestion.text;
+		nextQuestionBtn.disabled = true;
 	} else {
-		testOff()
+		testOff();
 	}
 }
 
@@ -111,7 +118,7 @@ function nextQuestion() {
 		userAnswer: [answerOnQuestion.value],
 		isRight: answerOnQuestion.value == questionAnswer
 	})
-	answerOnQuestion.value = ''
+	answerOnQuestion.value = '';
 	getQuestion()
 }
 
@@ -125,6 +132,7 @@ function testOff() {
 	answerQuantity.textContent = testAnswerQuantity;
 	answerRight.textContent = testRightAnswerQuantity;
 	answerWrong.textContent = testWrongAnswerQuantity;
+	setDetails();
 	resultBlock.style.display = 'block';
 }
 
@@ -134,4 +142,34 @@ function restartTesting() {
 	answerArr = [];
 	resultBlock.style.display = 'none';
 	startTesting()
+}
+
+function setDetails() {
+	console.log(detailsWrong.innerHTML)
+	let wrong = createTrInTable('wrong');
+	detailsWrongTable.appendChild(wrong)
+	let right = createTrInTable();
+	detailsRightTable.appendChild(right)
+}
+
+function createTrInTable(flag) {
+	let answerArrForTable = [];
+
+	if(flag == 'wrong') {
+		answerArrForTable = answerArr.filter(e => e.isRight == false);
+	} else {
+		answerArrForTable = answerArr.filter(e => e.isRight == true);
+	}
+	let tBody = document.createElement('tbody')
+	for (let elem of answerArrForTable) {
+		let tr = document.createElement('tr');
+		let td_question = document.createElement('td');
+		let td_userAnswer = document.createElement('td');
+		td_question.innerHTML = elem.text;
+		td_userAnswer.innerHTML = elem.userAnswer;
+		tr.appendChild(td_question);
+		tr.appendChild(td_userAnswer);
+		tBody.appendChild(tr)
+	}
+	return tBody
 }

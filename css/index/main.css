@@ -13,7 +13,20 @@ main {
     margin: 0 auto;
 
     .php_href {
-      /* display: block; */
+      display: inline-block;
+      margin: 0 0.5rem;
+      color: black;
+      transition: 0.7s;
+      text-decoration: none;
+
+      &:hover {
+        color: blue;
+        animation: rubberBand;
+        /* animation: bounce; */
+        /* animation: pulse; */
+        /* animation: shakeY; */
+        animation-duration: 1s;
+      }
     }
   }
   .btn_block {
@@ -24,31 +37,30 @@ main {
 }
 
 .test_block {
-	display: none;
+  display: none;
   max-width: 500px;
   text-align: left;
   margin: 0 auto;
   margin-top: 30px;
   span {
-	font-weight: 700;
-	font-size: 20px;
+    font-weight: 700;
+    font-size: 20px;
   }
   #question_text {
     background: rgb(228, 226, 226);
     padding: 3px;
-    
   }
 
   .answer_block {
     margin-top: 10px;
-	display: flex;
-	align-items:center;
+    display: flex;
+    align-items: center;
     input {
-	  flex: 1;
+      flex: 1;
       border-radius: 10px;
       padding: 10px;
       border: 1px solid gray;
-	  margin-right: 10px;
+      margin-right: 10px;
     }
     .btn_block {
       display: inline-block;
@@ -62,31 +74,82 @@ main {
 }
 
 .result_block {
-	display: none;
-	padding-top: 40px;
+  display: none;
+  padding-top: 40px;
 
-	.answer_span {
-		margin-left: 10px;
-	}
+  .answer_span {
+    margin-left: 10px;
+  }
 
-	.answer_quantity, .answer_right, .answer_wrong {
-		display: flex;
-		justify-content: space-between;
-		max-width: 500px;
-		margin: 0 auto;
-		margin-top: 30px;
+  .answer_quantity,
+  .answer_right,
+  .answer_wrong {
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 30px;
     border-bottom: 1px solid;
     span {
       font-size: 20px;
     }
-	}
-	.answer_right {
-		color: green;
-	}
-	.answer_wrong {
-		color:red;
-	}
-	.btn_block {
-		margin-top: 30px;
-	}
+  }
+  details {
+    display: block;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+
+    table {
+      width: 100%;
+      max-width: 500px;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    table#details_wrong_table {
+      border: 1px solid red;
+
+      th,td {
+        border-bottom: 1px solid red;
+        &:nth-child(even) {
+          border-left: 1px solid red;
+          text-align: center;
+        }
+      }
+    }
+    table#details_right_table {
+      border: 1px solid green;
+      th,td {
+        border-bottom: 1px solid green;
+        padding: 5px;
+        &:nth-child(even) {
+          border-left: 1px solid green;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  th {
+    text-align: center;
+  }
+
+  td {
+    &:first-child {
+      width: 80%;
+    }
+  }
+
+  .answer_right,
+  .details_right {
+    color: green;
+  }
+  .answer_wrong,
+  .details_wrong {
+    color: red;
+  }
+  .btn_block {
+    margin-top: 30px;
+  }
 }
