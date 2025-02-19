@@ -63,15 +63,13 @@ restartTest.addEventListener("click", restartTesting);
 // вешаем слушатели на input с ответом на вопрос
 answerOnQuestion.addEventListener("input", testAnswer);
 answerOnQuestion.addEventListener("keydown", (e) => {
-	console.log(e.key)
-  if (e.key == "Enter") {
+  if (e.key == "Enter" && answerOnQuestion.value.length > 0) {
     nextQuestion();
   }
 });
 
 // функция начала тестирования
 function startTesting() {
-  console.log("start");
   testBlock.style.display = "block";
   startTestingBtn.style.display = "none";
 
@@ -111,7 +109,6 @@ function testAnswer() {
 
 // функция следующего вопроса
 function nextQuestion() {
-  console.log("next question");
   let question = randomQuestion.text;
   let questionAnswer = randomQuestion.answer;
   answerArr.push({
