@@ -101,6 +101,7 @@ main {
     max-width: 500px;
     margin: 0 auto;
     text-align: left;
+    cursor: pointer;
 
     table {
       width: 100%;
